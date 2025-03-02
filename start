@@ -1,1 +1,25 @@
+#!/usr/bin/sh
+opt=$1
 
+print(){
+if [ "$opt" = "-s" ] || [ "$opt" = "-sd" ] || [ "$opt" = "-ds" ]; then
+espeak -ven+f3 -p20 -k20 -s160 -a70 "$1" 2>/dev/null
+fi
+if [ "$opt" = "-d" ] || [ "$opt" = "-sd" ] || [ "$opt" = "-ds" ]; then
+echo $1
+fi
+}
+
+sound(){
+if [ "$opt" = "-s" ] || [ "$opt" = "-sd" ] || [ "$opt" = "-ds" ]; then
+espeak -ven+f3 -p20 -k20 -s160 -a70 "$1" 2>/dev/null
+fi
+}
+if [ "$opt" = "-s" ] || [ "$opt" = "-sd" ] || [ "$opt" = "-ds" ]; then
+sudo apt-get install python-dev
+sudo apt-get install espeak python-espeak
+fi
+
+sound "Hi. this is espeak engine. today we going to install the Next Cloud on raspberry pi. Firstly we need to update and upgrade."
+sudo apt update && sudo apt upgrade
+sound "System has been succesfully upgraded. Now we need to install some necessary libraries."
