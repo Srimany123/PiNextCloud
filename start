@@ -32,3 +32,5 @@ sound "since it downloaded we give permission to execute"
 sudo chown -R www-data:www-data nextcloud
 sudo chmod -R 755 nextcloud
 sound "we are done with this set up"
+chmod +x setup_nextcloud_db.sh
+./setup_nextcloud_db.sh
