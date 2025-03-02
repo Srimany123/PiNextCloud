@@ -1,2 +1,3 @@
 sudo a2ensite nextcloud.conf
 sudo systemctl restart apache2
+echo "enter this site in web-browser: http://$(hostname -I)/nextcloud"
