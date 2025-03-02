@@ -21,5 +21,14 @@ sudo apt-get install espeak python-espeak
 fi
 
 sound "Hi. this is espeak engine. today we going to install the Next Cloud on raspberry pi. Firstly we need to update and upgrade."
-sudo apt update && sudo apt upgrade
+sudo apt update && sudo apt upgrade -y
 sound "System has been succesfully upgraded. Now we need to install some necessary libraries."
+sudo apt install apache2 mariadb-server libapache2-mod-php php php-cli php-mysql php-curl php-gd php-mbstring php-intl php-xml php-zip unzip -y
+sound "Needed libraries are installed. Now we download the Next Cloud and set it up."
+cd /var/www/html
+sudo wget https://download.nextcloud.com/server/releases/latest.tar.bz2
+sudo tar -xvf latest.tar.bz2
+sound "since it downloaded we give permission to execute"
+sudo chown -R www-data:www-data nextcloud
+sudo chmod -R 755 nextcloud
+sound "we are done with this set up"
